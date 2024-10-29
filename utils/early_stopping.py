@@ -1,6 +1,7 @@
 # utils/early_stopping.py
 
 import torch
+import os
 
 class EarlyStopping:
     def __init__(self, baseline=95, patience=5, min_delta=0.01):
@@ -31,10 +32,11 @@ class EarlyStopping:
             self.save_checkpoint(val_loss, val_accuracy, model, optimizer, epoch, path)
 
     def save_checkpoint(self, val_loss, val_accuracy, model, optimizer, epoch, path):
+        model_path = os.path.join(path, "early_stopped.pth")
         torch.save({
             'epoch': epoch,
             'model_state_dict': model.state_dict(),
             'optimizer_state_dict': optimizer.state_dict(),
             'val_loss': val_loss,
             'val_accuracy': val_accuracy,
-        }, path)
+        }, model_path)

@@ -13,7 +13,7 @@ class Config:
         self.num_classes = 10
         self.data_path = './data'
         self.results_path = './results'
-        self.model_save_path = os.path.join(self.results_path, 'MNIST_SOPCNN.pth')
+        self.model_save_path = os.path.join(self.results_path, 'model')
         self.log_interval = 10
         self.patience = 10
         self.min_delta = 0.001
