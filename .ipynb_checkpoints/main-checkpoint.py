@@ -1,7 +1,6 @@
 # main.py
 
 import torch
-from torchsummary import summary
 from config import config
 from data.dataset import get_train_loader, get_test_loader
 from models.model import SOPCNN
@@ -15,12 +14,12 @@ def main():
     
     # Initialize model, optimizer
     model = SOPCNN(num_classes=config.num_classes).to(config.device)
-    summary(model, input_size=(1, 28, 28))
-    optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
+    print(model.state_dict())
+    #optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
     
     # Train and Test
-    train(model, train_loader, val_loader, optimizer, config)
-    test(model, val_loader, config)
+    #train(model, train_loader, val_loader, optimizer, config)
+    #test(model, val_loader, config)
 
 if __name__ == '__main__':
     main()

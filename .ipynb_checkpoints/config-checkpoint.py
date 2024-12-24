@@ -5,9 +5,9 @@ import torch
 
 class Config:
     def __init__(self):
-        self.batch_size = 128
+        self.batch_size = 256
         self.learning_rate = 0.001
-        self.epochs = 100 
+        self.epochs = 5
         self.optimizer = 'adam'
         self.model_name = 'SOPCNN'
         self.num_classes = 10

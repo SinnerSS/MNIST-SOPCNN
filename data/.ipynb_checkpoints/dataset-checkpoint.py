@@ -3,11 +3,6 @@ from torchvision import datasets, transforms
 
 def get_train_loader(batch_size, data_path):
     transform = transforms.Compose([
-        #transforms.RandomRotation(10),  # Rotation
-        #transforms.RandomAffine(0, shear=10),  # Shearing
-        #transforms.RandomAffine(0, translate=(0.1, 0.1)),  # Shifting up and down
-        #transforms.RandomResizedCrop(28, scale=(0.8, 1.0)),  # Zooming
-        #transforms.Resize((28, 28)),  # Rescale
         transforms.ToTensor(),
         transforms.Normalize((0.1307,), (0.3081,))  # Normalize with MNIST mean and std
     ])
